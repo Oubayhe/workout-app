@@ -26,6 +26,23 @@ const get_workout = async (req, res) => {
 const post_workout = async (req, res) => {
     const {title, load, reps} = req.body
 
+    // Handling Error: Missing Values - This to give better error message to the user
+    let emptyFields = []
+
+    if(!title) {
+        emptyFields.push('title')
+    }
+    if(!load) {
+        emptyFields.push('load')
+    }
+    if(!reps) {
+        emptyFields.push('reps')
+    }
+    if(emptyFields.length > 0) {
+        return res.status(404).json({ error: 'Please fill in al the fields', emptyFields })
+    }
+    
+    // Everything is OK
     try {
         const workout = await Workout.create({title, load, reps})
         res.status(200).json(workout)
