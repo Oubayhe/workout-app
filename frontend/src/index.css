@@ -5,14 +5,29 @@
 :root {
   --primary: #1aac83;
   --error: #e7195a;
+  --body-background: #f1f1f1;
+  --basic-color: #fff;
+  --text-big-color: #333; 
+  --text-regular-color: #555;
+  --error-background: #ffefef;
 }
+/* :root {
+  --primary: #1aac83; /* Primary color 
+  --error: #e7195a; /* Error color 
+  --body-background: #222; /* Background color for body 
+  --basic-color: #333; /* Basic text color 
+  --text-big-color: #fff; /* Text color for larger text 
+  --text-regular-color: #ddd; /* Text color for regular-sized text 
+  --error-background: #441c1c; /* Background color for error messages 
+} */
+
 body {
-  background: #f1f1f1;
+  background: var(--body-background);
   margin: 0;
   font-family: "Poppins";
 }
 header {
-  background: #fff;
+  background: var(--basic-color);
 }
 header .container {
   max-width: 1400px;
@@ -22,8 +37,20 @@ header .container {
   align-items: center;
   justify-content: space-between;
 }
+header .container nav {
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-info {
+  color: var(--text-regular-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 header a {
-  color: #333;
+  color: var(--text-big-color);
   text-decoration: none;
 }
 .pages{
@@ -36,12 +63,19 @@ header a {
 .home {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  gap: 70px;
+}
+.workouts {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
 }
 .workout-details {
-  background: #fff;
+  width: 28%;
+  background: var(--basic-color);
   border-radius: 4px;
-  margin: 20px auto;
   padding: 20px;
   position: relative;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
@@ -54,20 +88,23 @@ header a {
 .workout-details p {
   margin: 0;
   font-size: 0.9em;
-  color: #555;
+  color: var(--text-regular-color);
 }
 .workout-details span {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
-  background: #f1f1f1;
+  background: var(--body-background);
   padding: 6px;
   border-radius: 50%;
-  color: #333;
+  color: var(--text-big-color);
 }
 
 /* new workout form */
+form {
+  color: var(--text-regular-color);
+}
 label, input {
   display: block;
 }
@@ -83,7 +120,7 @@ input {
 form button {
   background: var(--primary);
   border: 0;
-  color: #fff;
+  color: var(--basic-color);
   padding: 10px;
   font-family: "Poppins";
   border-radius: 4px;
@@ -91,7 +128,7 @@ form button {
 }
 div.error {
   padding: 10px;
-  background: #ffefef;
+  background: var(--error-background);
   border: 1px solid var(--error);
   color: var(--error);
   border-radius: 4px;
@@ -110,7 +147,7 @@ nav a {
   margin-left: 10px;
 }
 nav button {
-  background: #fff;
+  background: var(--basic-color);
   color: var(--primary);
   border: 2px solid var(--primary);
   padding: 6px 10px;
@@ -125,6 +162,6 @@ form.signup, form.login {
   max-width: 400px;
   margin: 40px auto;
   padding: 20px;
-  background: #fff;
+  background: var(--basic-color);
   border-radius: 4px;
 }
